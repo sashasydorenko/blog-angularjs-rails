@@ -1,0 +1,103 @@
+// Forms
+
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .6em;
+  font-size: 1.2em;
+  line-height: 1;
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #dedede;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  @include border-radius(3px);
+  @include transition(border-color ease-in-out .15s);
+
+  &:-moz-placeholder           { padding-top: 3px; .win & { padding-top: 2px; } }
+  &::-moz-placeholder          { padding-top: 3px; .win & { padding-top: 2px; } }
+  &:-ms-input-placeholder      { padding-top: 3px; .win & { padding-top: 2px; } }
+  &::-webkit-input-placeholder { padding-top: 3px; .win & { padding-top: 2px; } }
+
+  &[disabled],
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: #ddd;
+    opacity: 1;
+  }
+
+  &.ng-invalid.ng-dirty,
+  &.form-control-error {
+    border-color: #b90012;
+    &:-moz-placeholder           { color: #b90012; }
+    &::-moz-placeholder          { color: #b90012; }
+    &:-ms-input-placeholder      { color: #b90012; }
+    &::-webkit-input-placeholder { color: #b90012; }
+  }
+}
+
+textarea {
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.2em !important;
+}
+
+.form-control-info {
+  display: block;
+  font-size: .85em;
+  color: #777;
+}
+
+// Default form
+.form {
+  margin: 1.5em 0 2.5em;
+
+  label {
+    font-size: 1.2em;
+    margin-bottom: .3em;
+    display: block;
+  }
+
+  .form-control {
+    margin-bottom: 1em;
+  }
+
+  .form-control-info {
+    margin: -1em 0 1.3em;
+  }
+
+  .btn {
+    + .btn {
+      margin-left: 1em;
+    }
+  }
+}

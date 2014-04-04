@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title Blog by Sasha Sydorenko
+    meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+
+  body ng-app="blogApp" ng-init="is_logged=#{user_signed_in?};is_admin=#{current_user ? current_user.is_admin? : false}"
+
+    aside.aside
+      .aside-inner
+        a.profile-img href="/"
+
+        span.profile-title
+          | Hi there, I'm 
+          a href="https://www.facebook.com/sasha.sydorenko" target="_blank" Sasha
+
+        span.profile-love and I love coding :)
+
+      a.github href="https://github.com/SashaSydorenko" target="_blank"
+        = fa_icon 'github'
+        span  GitHub
+
+    main.main
+      flash
+
+      ng-view
+
+      nav.nav
+        a data-toggle="dropdown" href="#" = fa_icon 'bars'
+        ul.menu role="menu"
+          li ng-if="!is_logged": a href="/login" = fa_icon 'sign-in', text: 'Login'
+          li ng-if="!is_logged": a href="/registration" = fa_icon 'user', text: 'Registration'
+          li ng-if="is_admin": a href="/posts/new" = fa_icon 'plus', text: 'New post'
+          li ng-if="is_logged": a href="/logout" = fa_icon 'sign-out', text: 'Sign Out'
+
+      .copyright Copyright © 2014 - Sasha Sydorenko. 
+
+    / JavaScript
+    = javascript_include_tag "application"

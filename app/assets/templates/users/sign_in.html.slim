@@ -1,0 +1,11 @@
+h1 Sign in
+
+form.form novalidate="" name="singIn" ng-submit="signIn()"
+  label Email
+  input.form-control type="email" name="email" autofocus="" required="" ng-model="user.email"
+
+  label Password
+  input.form-control type="password" name="password" required="" ng-minlength="8" ng-model="user.password"
+
+  button.btn ng-disabled="singIn.$invalid" Sign in
+  a.btn href="/" Back

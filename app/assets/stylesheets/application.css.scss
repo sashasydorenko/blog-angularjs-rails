@@ -1,0 +1,265 @@
+@import "compass/css3";
+@import "ui/fonts";
+@import "ui/mixins";
+@import "ui/variables";
+@import "ui/normalize";
+
+// Icons FontAwesome
+@import "font-awesome";
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+:focus {
+  outline: 0 !important;
+}
+
+html {
+  height: 100%;
+  line-height: 1;
+}
+
+body {
+  height: 100%;
+  background: $bgColor;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+a {
+  color: #5ab3f6;
+  text-decoration: none;
+}
+
+.aside {
+  background: #292929;
+  color: #fff;
+  padding: 1em;
+  position: relative;
+  z-index: 100;
+  @include clearfix;
+}
+
+.aside-inner {
+}
+
+.profile-img {
+  background: url('https://scontent-b-cdg.xx.fbcdn.net/hphotos-prn2/t31.0-8/1501373_598447860190463_92718037_o.jpg') 50% 30%;
+  width: 5em;
+  height: 5em;
+  margin: 0 1em 0 0;
+  float: left;
+  @include opacity(.85);
+  @include border-radius(100%);
+  @include background-size(cover);
+  @include transition(all .2s ease);
+
+  &:hover {
+    @include opacity(1);
+  }
+}
+
+.profile-title {
+  color: white;
+  font-size: 1.2em;
+  margin: 0.8em 0 .5em;
+  display: inline-block;
+  @include transition(all .2s ease);
+
+  a {
+    color: white;
+    border-bottom: 1px solid transparent;
+    @include transition(border .2s ease);
+    &:hover {
+      border-bottom-color: white;
+    }
+  }
+}
+
+.profile-love {
+  display: block;
+  color: #787878;
+}
+
+.github {
+  padding: .6em;
+  height: 33px;
+  width: 6.5em;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  color: #bbb;
+  text-align: center;
+  position: absolute;
+  right: 1em;
+  font-size: 0.875em;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  @include transition(all .2s ease);
+
+  &:hover {
+    background: rgba(255,255,255,.6);
+    color: black;
+  }
+
+  span {
+    padding-left: .3em;
+  }
+}
+
+.main {
+  padding: 1.5em;
+  min-height: 100%;
+  position: relative;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 1.7em;
+}
+
+.nav {
+  color: #fff;
+  position: fixed;
+  bottom: 1em;
+  right: .8em;
+  z-index: 100;
+
+  > a {
+    color: #292929;
+    padding: .5em;
+    font-size: 1.6em;
+    text-shadow: 0 0 4px rgba(255,255,255,.8);
+  }
+
+  .menu {
+    list-style: none;
+    position: absolute;
+    right: -15em;
+    bottom: 2.4em;
+    white-space: nowrap;
+    background: white;
+    border: 1px solid #dedede;
+    margin: 0;
+    padding: 1px;
+    border-radius: 5px 0 0 5px;
+    line-height: 1.1em;
+    @include transition(.2s);
+
+    a {
+      color: #000;
+      display: block;
+      padding: .5em 1em .5em .5em;
+      border-radius: 4px 0 0 4px;
+      font-size: 1.125em;
+      @include transition(.2s);
+
+      &:hover {
+        border-color: #5ab3f6;
+        background: #5ab3f6;
+        color: #fff;
+      }
+    }
+  }
+
+  &.open .menu { right: -1em; }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: top;
+  border-top: 4px solid #000;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+@media (max-width : 400px) {
+  .github {
+    border: none !important;
+    width: auto;
+    height: 32px;
+    font-size: 2em;
+    right: .4em;
+    padding: 0;
+
+    &:hover {
+      color: white;
+      background: none;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (min-width : $mediaMinWidth) {
+  .aside {
+    width: 30%;
+    max-width: 500px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .aside-inner {
+    height: 300px;
+    margin: auto;
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+  }
+
+  .profile-img {
+    float: none;
+    display: block;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 2em;
+  }
+
+  .profile-title {
+    display: block;
+    text-align: center;
+    margin: 0 0 1.5em;
+    font-size: 1.5em;
+  }
+
+  .profile-love {
+    text-align: center;
+  }
+
+  .github {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+  }
+
+  .main {
+    margin-left: 30%;
+    padding: 2.5em 3em;
+  }
+
+  .copyright {
+    bottom: 2em;
+  }
+}
+
+// UI
+@import "ui/forms";
+@import "ui/buttons";
+@import "ui/button_groups";
+@import "ui/popovers";
+@import "ui/flash";
+@import "ui/text_angular";
+
+// Page
+@import "posts";

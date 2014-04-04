@@ -1,0 +1,90 @@
+// Flash
+
+.flash-title:first-letter { text-transform: uppercase; }
+
+.flash-message {
+  font-size: .8em;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+#flash-container {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 999999;
+  @include transition(.2s);
+
+  > div {
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+    min-width: 150px;
+    color: #ffffff;
+    position: relative;
+    @include opacity(0.8);
+    @include box-shadow(0 0 12px #999999);
+    @include border-radius(3px 3px 3px 3px);
+    @include transition(.2s);
+
+    &:before {
+      font-family: 'FontAwesome';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.375em;
+      text-align: center;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      left: 15px;
+      top: 13px;
+      width: 23px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      @include opacity(1);
+      @include box-shadow(0 0 12px rgba(0,0,0,.8));
+    }
+
+    &.flash { background-color: #030303; }
+    &.flash-success { background-color: #51a351; }
+    &.flash-error { background-color: #bd362f; }
+    &.flash-info { background-color: #2f96b4; }
+    &.flash-warning { background-color: #f89406; }
+
+    &.flash-info:before { content: "\f12a"; }
+    &.flash-error:before { content: "\f071"; }
+    &.flash-success:before { content: "\f00c"; }
+    &.flash-warning:before { content: "\f071"; }
+
+    // AngularJS-Flash
+    &.ng-enter,
+    &.ng-leave { @include transition(700ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all); } 
+
+    &.ng-enter.ng-enter-active, 
+    &.ng-leave { @include opacity(0.8); }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-enter { @include opacity(0); }
+  }
+}
+
+// Responsive Design
+@media all and (max-width: 240px) {
+  #flash-container {
+    > div { padding: 8px 8px 8px 50px; width: 11em;
+      &:before { font-size: 1em; top: 9px; }
+    }
+  }
+}
+@media all and (min-width: 241px) and (max-width: 480px) {
+  #flash-container {
+    > div { padding: 8px 8px 8px 50px; width: 18em;
+      &:before { font-size: 1em; top: 9px; }
+    }
+  }
+}
+@media all and (min-width: 481px) and (max-width: 768px) {
+  #flash-container > div { padding: 15px 15px 15px 50px; width: 25em; }
+}

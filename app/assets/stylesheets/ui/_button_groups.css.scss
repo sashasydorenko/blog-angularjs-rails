@@ -1,0 +1,49 @@
+// Button groups
+
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .btn {
+    position: relative;
+    float: left;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &:not(:last-child) {
+        @include border-right-radius(0);
+      }
+    }
+
+    &:last-child:not(:first-child) {
+      @include border-left-radius(0);
+    }
+
+    + .btn {
+      margin-left: -1px;
+    }
+  }
+}
+
+.btn-toolbar {
+  margin-left: -5px;
+  @include clearfix();
+
+  .btn-group {
+    float: left;
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,15 @@
+h1 Sign up
+
+form.form novalidate="" name="singUp" ng-submit="submitSignUp()"
+  label Email
+  input.form-control type="email" name="email" autofocus="" required="" ng-model="user.email"
+
+  label Password
+  input.form-control type="password" name="password" required="" ng-minlength="8" ng-model="user.password"
+  span.form-control-info Min. 8 characters
+
+  label Password confirmation
+  input.form-control type="password" name="password_confirmation" required="" ng-minlength="8" ng-model="user.password_confirmation" equals="{{user.password}}"
+
+  button.btn ng-disabled="singUp.$invalid" Sign up
+  a.btn href="/" Back

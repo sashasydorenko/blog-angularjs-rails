@@ -1,0 +1,54 @@
+// Buttons
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: white;
+  background-image: none;
+  color: black;
+  white-space: nowrap;
+  padding: .6em 2em;
+  font-size: 1em;
+  line-height: 1;
+  border: 1px solid #dedede;
+  @include border-radius(3px);
+  @include user-select(none);
+  @include transition(all .2s ease);
+
+  &:hover,
+  &:focus {
+    color: black;
+    text-decoration: none;
+    border-color: #5ab3f6;
+    background: #5ab3f6;
+    color: white;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    @include opacity(.70);
+    @include box-shadow(none);
+  }
+
+  // Buttons size
+  &.btn-sm {
+    padding: 6px 9px;
+    height: 30px;
+    font-size: 14px;
+  }
+}

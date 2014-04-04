@@ -1,0 +1,12 @@
+article.post
+  header
+    p.meta
+      time datetime="{{post.created_at | date}}" {{post.created_at | date | uppercase}}
+      
+    h1.title
+      | {{post.title}}
+      a.btn-act ng-if="post.is_admin" href="/posts/{{post.id}}/edit": i.fa.fa-pencil
+      a.btn-act ng-if="post.is_admin" href="" ng-click="deletePost(post.id, $index)": i.fa.fa-trash-o
+
+  p.desc ng-bind-html="post.desc"
+  p.desc ng-if="post.body" ng-bind-html="post.body"

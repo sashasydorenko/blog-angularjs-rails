@@ -1,0 +1,12 @@
+form.form novalidate="" name="postForm" ng-submit="savePost()"
+  label for="" Title
+  input.form-control type="text" name="title" ng-model="post.title" required=""
+
+  label for="" Short description
+  text-angular name="desc" ng-model="post.desc" required=""
+
+  label for="" Body
+  text-angular name="body" ng-model="post.body"
+
+  button.btn ng-disabled="postForm.$invalid" Save
+  a.btn href="/" Back

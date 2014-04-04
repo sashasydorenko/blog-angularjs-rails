@@ -1,0 +1,17 @@
+// textAngular
+
+.ta-root {
+  &[name="desc"] .ta-editor { min-height: 150px; }
+  &[name="body"] .ta-editor { min-height: 300px; }
+
+  .ta-toolbar {
+    .btn-group { margin-bottom: 5px; }
+    .fa { float: left; }
+  }
+
+  .ta-editor {
+    font-size: 14px;
+    img { max-width: 100%; }
+  }
+}
+
